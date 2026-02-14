@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Our Love Story ❤️</title>
+<style>
+body{
+margin:0;
+font-family: 'Comic Sans MS', cursive;
+background:url('Siva.jpg') no-repeat center center fixed;
+background-size:cover;
+color:white;
+text-align:center;
+}
+.overlay{
+background:rgba(0,0,0,0.6);
+min-height:100vh;
+padding:20px;
+}
+.heart{
+position:fixed;
+bottom:-10px;
+color:red;
+animation:fly 6s linear infinite;
+}
+@keyframes fly{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
+}
+.letter{
+background:rgba(255,192,203,0.9);
+color:black;
+padding:20px;
+border-radius:20px;
+width:90%;
+margin:auto;
+}
+button{
+padding:10px 20px;
+font-size:18px;
+border:none;
+border-radius:20px;
+background:red;
+color:white;
+margin:10px;
+cursor:pointer;
+}
+.hidden{display:none;}
+img{width:200px;border-radius:20px;margin:10px;}
+video{width:80%;border-radius:20px;}
+</style>
+</head>
+<body>
+
+<div class="overlay">
+
+<!-- LOVE LETTER & TIMELINE -->
+<div id="letter">
+<div class="letter">
+<h2>My Love ❤️</h2>
+<p>
+2019 - the spark ✨<br>
+2020 - growing together 💕<br>
+2021 - love is growing as we are ❤️<br>
+2022 - can't wait to see you 🥺<br>
+2023 - finally we met 😍<br>
+2024 - kalyaanoooww 💍<br>
+2025 - living the life we longed for 🏡<br>
+2026 - starting with our little miracle’s kicks and turns 👶❤️<br><br>
+</p>
+
+<h3>Ready for another year?</h3>
+<button onclick="alwaysTouch()"><img src="pic2.jpg" style="width:150px"><br>Always ❤️</button>
+<button onclick="noTouch()"><img src="pic1.jpg" style="width:150px"><br>No 😏</button>
+
+<br>
+<button id="startBtn" class="hidden" onclick="startQuiz()">Let's Start ❤️</button>
+</div>
+</div>
+
+<!-- QUIZ 1 -->
+<div id="quiz1" class="hidden">
+<h2>Choose my favourite picture ❤️</h2>
+<img src="siva1.jpg" onclick="wrong1()">
+<img src="siva2.jpg" onclick="correct1()">
+<img src="siva3.jpg" onclick="wrong2()">
+<br>
+<button id="next1" class="hidden" onclick="quiz2()">Next ❤️</button>
+</div>
+
+<!-- QUIZ 2 -->
+<div id="quiz2" class="hidden">
+<h2>Type my name ❤️</h2>
+<input id="nameBox">
+<br>
+<button onclick="checkName()">Submit ❤️</button>
+<br>
+<button id="next2" class="hidden" onclick="quiz3()">Next ❤️</button>
+</div>
+
+<!-- QUIZ 3 -->
+<div id="quiz3" class="hidden">
+<h2>Choose our marriage date ❤️</h2>
+<button onclick="gift()">15 ❤️</button>
+<button onclick="wrongDate()">20 ❤️</button>
+<button onclick="wrongDate()">2 ❤️</button>
+</div>
+
+<!-- GIFT -->
+<div id="gift" class="hidden">
+<h2>Your Gift ❤️</h2>
+<video id="giftVideo" controls>
+<source src="Love.mp4" type="video/mp4">
+</video>
+<h1>Happy Valentine's Day My Life ❤️</h1>
+</div>
+
+</div>
+
+<script>
+/* flying hearts */
+setInterval(function(){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"%";
+heart.style.fontSize=(20+Math.random()*30)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},500);
+
+/* heart popups */
+function popup(msg){ alert(msg); }
+
+/* Timeline button logic */
+function alwaysTouch(){
+popup("Love you baby ❤️");
+popup("Love you baby ❤️");
+document.getElementById("startBtn").classList.remove("hidden");
+}
+function noTouch(){
+popup("Dai daii vera vali illa 😏, unakku ennavitta");
+document.getElementById("startBtn").classList.remove("hidden");
+}
+
+/* Start Quiz */
+function startQuiz(){
+document.getElementById("letter").classList.add("hidden");
+document.getElementById("quiz1").classList.remove("hidden");
+popup("Quiz starts baby ❤️");
+}
+
+/* Quiz 1 */
+function wrong1(){ popup("No baby try again 😢"); }
+function wrong2(){ popup("Baby you know which one 😏"); }
+function correct1(){ popup("Yayyy correct babyy ❤️"); document.getElementById("next1").classList.remove("hidden"); }
+
+/* Quiz 2 */
+function quiz2(){ document.getElementById("quiz1").classList.add("hidden"); document.getElementById("quiz2").classList.remove("hidden"); popup("Next question ❤️"); }
+function checkName(){ 
+let name=document.getElementById("nameBox").value.toLowerCase();
+if(name=="silukku"){
+popup("Correct baby ❤️");
+document.getElementById("next2").classList.remove("hidden");
+}else{ popup("Baby try again!!"); } 
+}
+
+/* Quiz 3 */
+function quiz3(){ document.getElementById("quiz2").classList.add("hidden"); document.getElementById("quiz3").classList.remove("hidden"); popup("Final question ❤️"); }
+function wrongDate(){ popup("Wrong baby 😏"); }
+
+/* Gift Video at END only */
+function gift(){
+popup("Here is your gift baby ❤️");
+document.getElementById("quiz3").classList.add("hidden");
+document.getElementById("gift").classList.remove("hidden");
+}
+
+</script>
+</body>
+</html>
